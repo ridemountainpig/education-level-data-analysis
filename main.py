@@ -161,28 +161,61 @@ import math
 
 # creditCardData.to_csv("./data/afterProcess/教育程度信用卡消費.csv", index=False)
 
-newTaipeiData = pd.read_csv("./data/afterProcess/新北市失業率.csv")
-newTaipeiData['地區'] = ['新北市' for i in range(0, len(newTaipeiData['年度']))]
-taipeiData = pd.read_csv("./data/afterProcess/臺北市失業率.csv")
-taipeiData['地區'] = ['臺北市' for i in range(0, len(taipeiData['年度']))]
-taichungData = pd.read_csv("./data/afterProcess/臺中市失業率.csv")
-taichungData['地區'] = ['臺中市' for i in range(0, len(taichungData['年度']))]
-kaohsiungData = pd.read_csv("./data/afterProcess/高雄市失業率.csv")
-kaohsiungData['地區'] = ['高雄市' for i in range(0, len(kaohsiungData['年度']))]
-taoyuanData = pd.read_csv("./data/afterProcess/桃園市失業率.csv")
-taoyuanData['地區'] = ['桃園市' for i in range(0, len(taoyuanData['年度']))]
-tainanData = pd.read_csv("./data/afterProcess/臺南市失業率.csv")
-tainanData['地區'] = ['臺南市' for i in range(0, len(tainanData['年度']))]
+# all city unployment rate combine credit data process
+# newTaipeiData = pd.read_csv("./data/afterProcess/新北市失業率.csv")
+# newTaipeiData['地區'] = ['新北市' for i in range(0, len(newTaipeiData['年度']))]
+# taipeiData = pd.read_csv("./data/afterProcess/臺北市失業率.csv")
+# taipeiData['地區'] = ['臺北市' for i in range(0, len(taipeiData['年度']))]
+# taichungData = pd.read_csv("./data/afterProcess/臺中市失業率.csv")
+# taichungData['地區'] = ['臺中市' for i in range(0, len(taichungData['年度']))]
+# kaohsiungData = pd.read_csv("./data/afterProcess/高雄市失業率.csv")
+# kaohsiungData['地區'] = ['高雄市' for i in range(0, len(kaohsiungData['年度']))]
+# taoyuanData = pd.read_csv("./data/afterProcess/桃園市失業率.csv")
+# taoyuanData['地區'] = ['桃園市' for i in range(0, len(taoyuanData['年度']))]
+# tainanData = pd.read_csv("./data/afterProcess/臺南市失業率.csv")
+# tainanData['地區'] = ['臺南市' for i in range(0, len(tainanData['年度']))]
 
-creditCardData = pd.read_csv("./data/afterProcess/教育程度信用卡消費.csv")
+# creditCardData = pd.read_csv("./data/afterProcess/教育程度信用卡消費.csv")
 
-AllCityData = pd.concat([newTaipeiData, taipeiData, taichungData, kaohsiungData, taoyuanData, tainanData])
-AllCityData = AllCityData.iloc[:,[0, 4, 1, 2, 3]]
-AllCityData = AllCityData.reset_index()
-AllCityData = AllCityData.drop(["index"], axis=1)
-phd = pd.concat([creditCardData[creditCardData["教育程度類別"] == "博士"], creditCardData[creditCardData["教育程度類別"] == "碩士"], creditCardData[creditCardData["教育程度類別"] == "大學"], creditCardData[creditCardData["教育程度類別"] == "專科"]])
-phd = phd.drop(["教育程度類別"], axis=1)
-# AllCityData["信用卡交易金額[新台幣]-大專及以上"] = phd["信用卡交易金額[新台幣]"]
+# AllCityData = pd.concat([newTaipeiData, taipeiData, taichungData, kaohsiungData, taoyuanData, tainanData])
+# AllCityData = AllCityData.iloc[:,[0, 4, 1, 2, 3]]
+# AllCityData = AllCityData.reset_index()
+# AllCityData = AllCityData.drop(["index"], axis=1)
+# AllCityData = AllCityData.sort_values(by=["年度", "地區"])
+# AllCityData = AllCityData.reset_index()
 
-print(AllCityData)
-print(phd)
+# aboveUniversity = pd.concat([creditCardData[creditCardData["教育程度類別"] == "博士"], creditCardData[creditCardData["教育程度類別"] == "碩士"], creditCardData[creditCardData["教育程度類別"] == "大學"], creditCardData[creditCardData["教育程度類別"] == "專科"]])
+# aboveUniversity = aboveUniversity.drop(["教育程度類別"], axis=1)
+# aboveUniversity = aboveUniversity.groupby(["年月", "地區"], as_index=False).agg({"年月": "first", "地區": "first", "信用卡交易金額[新台幣]": "sum"})
+# aboveUniversity = aboveUniversity.sort_values(by=["年月", "地區"])
+# aboveUniversity = aboveUniversity.reset_index()
+# aboveUniversity = aboveUniversity.drop(["index"], axis=1)
+
+# senior = creditCardData[creditCardData["教育程度類別"] == "高中高職"]
+# senior = senior.drop(["教育程度類別"], axis=1)
+# senior = senior.sort_values(by=["年月", "地區"])
+# senior = senior.reset_index()
+# senior = senior.drop(["index"], axis=1)
+
+# AllCityData["信用卡交易金額[新台幣]-大專及以上"] = aboveUniversity["信用卡交易金額[新台幣]"]
+# AllCityData = AllCityData.reset_index()
+# AllCityData = AllCityData.drop(["level_0"], axis=1)
+# AllCityData = AllCityData.drop(["index"], axis=1)
+# AllCityData["信用卡交易金額[新台幣]-高中職"] = senior["信用卡交易金額[新台幣]"]
+
+# AllCityData = AllCityData.drop(["失業率-國中及以下[%]"], axis=1)
+# AllCityData = AllCityData.iloc[:,[0, 1, 2, 4, 3, 5]]
+
+# AllCityData.to_csv("./data/afterProcess/amountWithRate.csv", index=False)
+
+# print(AllCityData)
+
+# average income data process
+# averageIncome = pd.read_csv("./data/averageIncome.csv")
+# averageIncome = averageIncome.iloc[:,[1, 3, 4, 5, 6, 7, 8]]
+# for i in range(0, len(averageIncome["Data__Year"])):
+#     averageIncome["Data__Year"][i] = averageIncome["Data__Year"][i] - 1911
+# averageIncome = averageIncome.iloc[17:22]
+# averageIncome = averageIncome.rename(columns={"Data__Year": "年度", "Data__新北市": "新北市", "Data__臺北市": "臺北市", "Data__臺中市": "臺中市", "Data__高雄市": "高雄市", "Data__桃園市": "桃園市", "Data__臺南市": "臺南市"})
+# averageIncome.to_csv("./data/afterProcess/averageIncome.csv", index=False)
+# print(averageIncome)
