@@ -1,5 +1,9 @@
 import pandas as pd
 import math
+import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
+
+
 
 # taichung data process
 # taichungData = pd.read_csv("./data/臺中市失業率.csv")
@@ -219,3 +223,78 @@ import math
 # averageIncome = averageIncome.rename(columns={"Data__Year": "年度", "Data__新北市": "新北市", "Data__臺北市": "臺北市", "Data__臺中市": "臺中市", "Data__高雄市": "高雄市", "Data__桃園市": "桃園市", "Data__臺南市": "臺南市"})
 # averageIncome.to_csv("./data/afterProcess/averageIncome.csv", index=False)
 # print(averageIncome)
+
+amountRate = pd.read_csv("./data/afterProcess/amountWithRate.csv")
+averageIncome = pd.read_csv("./data/afterProcess/averageIncome.csv")
+
+year = [i for i in range(104, 109)]
+taipeiRate = amountRate[amountRate["地區"] == "臺北市"]["失業率-高中職[%]"]
+newTaipeiRate = amountRate[amountRate["地區"] == "新北市"]["失業率-高中職[%]"]
+taichungRate = amountRate[amountRate["地區"] == "臺中市"]["失業率-高中職[%]"]
+kaohsiungRate = amountRate[amountRate["地區"] == "高雄市"]["失業率-高中職[%]"]
+taoyuanRate = amountRate[amountRate["地區"] == "桃園市"]["失業率-高中職[%]"]
+tainanRate = amountRate[amountRate["地區"] == "臺南市"]["失業率-高中職[%]"]
+
+plt.gca().xaxis.set_major_locator(MaxNLocator(integer=True))
+plt.gca().yaxis.set_major_locator(MaxNLocator(integer=True))
+
+plt.plot(year, taipeiRate, label="taipei")
+plt.plot(year, newTaipeiRate, label="newTaipei")
+plt.plot(year, taichungRate, label="taichung")
+plt.plot(year, kaohsiungRate, label="kaohsiung")
+plt.plot(year, taoyuanRate, label="taoyuan")
+plt.plot(year, tainanRate, label="tainan")
+plt.ylim(2,5)
+
+plt.legend(loc="best")
+plt.xlabel("Year")
+plt.ylabel("Unemployment Rate(%)")
+
+plt.show()
+
+# taipeiRate = amountRate[amountRate["地區"] == "臺北市"]["信用卡交易金額[新台幣]-大專及以上"]
+# newTaipeiRate = amountRate[amountRate["地區"] == "新北市"]["信用卡交易金額[新台幣]-大專及以上"]
+# taichungRate = amountRate[amountRate["地區"] == "臺中市"]["信用卡交易金額[新台幣]-大專及以上"]
+# kaohsiungRate = amountRate[amountRate["地區"] == "高雄市"]["信用卡交易金額[新台幣]-大專及以上"]
+# taoyuanRate = amountRate[amountRate["地區"] == "桃園市"]["信用卡交易金額[新台幣]-大專及以上"]
+# tainanRate = amountRate[amountRate["地區"] == "臺南市"]["信用卡交易金額[新台幣]-大專及以上"]
+
+# plt.gca().xaxis.set_major_locator(MaxNLocator(integer=True))
+# plt.gca().yaxis.set_major_locator(MaxNLocator(integer=True))
+
+# plt.plot(year, taipeiRate, label="taipei")
+# plt.plot(year, newTaipeiRate, label="newTaipei")
+# plt.plot(year, taichungRate, label="taichung")
+# plt.plot(year, kaohsiungRate, label="kaohsiung")
+# plt.plot(year, taoyuanRate, label="taoyuan")
+# plt.plot(year, tainanRate, label="tainan")
+# plt.ylim(0,1000000000000)
+
+# plt.legend(loc="best")
+# plt.xlabel("Year")
+# plt.ylabel("Credit Card Amount")
+# plt.show()
+
+# taipeiIncome = averageIncome["臺北市"]
+# newTaipeiIncome = averageIncome["新北市"]
+# taichungIncome = averageIncome["臺中市"]
+# kaohsiungIncome = averageIncome["高雄市"]
+# taoyuanIncome = averageIncome["桃園市"]
+# tainanIncome = averageIncome["臺南市"]
+
+# plt.gca().xaxis.set_major_locator(MaxNLocator(integer=True))
+
+# plt.plot(year, taipeiIncome, label="taipei")
+# plt.plot(year, newTaipeiIncome, label="newTaipei")
+# plt.plot(year, taichungIncome, label="taichung")
+# plt.plot(year, kaohsiungIncome, label="kaohsiung")
+# plt.plot(year, taoyuanIncome, label="taoyuan")
+# plt.plot(year, tainanIncome, label="tainan")
+# # plt.ylim(0,1000000000000)
+
+# plt.legend(loc="best")
+# plt.xlabel("Year")
+# plt.ylabel("Average Income")
+# plt.show()
+
+
