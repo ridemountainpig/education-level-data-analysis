@@ -2,7 +2,7 @@
 
 This repository contains code and data for an analysis of the relationship between education levels, unemployment rates, and credit card spending in Taiwan's six major cities: Taipei, New Taipei, Taoyuan, Taichung, Tainan, and Kaohsiung.
 
-The data used in this analysis was obtained from [Taiwan Government Open Data Platform](https://data.gov.tw), and was processed using the Python libraries Pandas and Matplotlib. Specifically, the [main.ipynb](https://github.com/ridemountainpig/big-data-analysis-course/blob/main/main.ipynb) Jupyter Notebook file contains the code used to clean and analyze the data, and the data folder contains the raw and processed data files.
+The data used in this analysis was obtained from [Taiwan Government Open Data Platform](https://data.gov.tw), and was processed using the Python libraries Pandas and Matplotlib. Specifically, the [main.ipynb](https://github.com/ridemountainpig/education-level-data-analysis/blob/main/main.ipynb) Jupyter Notebook file contains the code used to clean and analyze the data, and the data folder contains the raw and processed data files.
 
 # Data Description
 The dataset used in this analysis includes the following variables:
@@ -30,4 +30,4 @@ The dataset covers the period from 2015 to 2019.
     Overall, this dataset provides interesting insights into the relationship between education level, unemployment rate, and credit card spending in different regions of Taiwan.
 
 # License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/ridemountainpig/education-level-data-analysis/blob/main/LICENSE) file for details.
