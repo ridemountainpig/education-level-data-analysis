@@ -15,6 +15,35 @@ The dataset used in this analysis includes the following variables:
 The dataset covers the period from 2015 to 2019.
 
 # Analysis Results
+
+<div align="center">
+  <img src="https://github.com/ridemountainpig/education-level-data-analysis/blob/main/images/creditAmountSenior.png"/>
+</div>
+<div align="center">
+    <b>High school education level credit card consumption</b>
+</div>
+
+<div align="center">
+  <img src="https://github.com/ridemountainpig/education-level-data-analysis/blob/main/images/creditAmountUniversity.png"/>
+</div>
+<div align="center">
+    <b>College education level or above credit card consumption</b>
+</div>
+
+<div align="center">
+  <img src="https://github.com/ridemountainpig/education-level-data-analysis/blob/main/images/umploymentRateSenior.png"/>
+</div>
+<div align="center">
+    <b>High School Education unemployment Rate</b>
+</div>
+
+<div align="center">
+  <img src="https://github.com/ridemountainpig/education-level-data-analysis/blob/main/images/umploymentRateUniversity.png"/>
+</div>
+<div align="center">
+    <b>College education or above unemployment Rate</b>
+</div>
+
 1. Education Level and Unemployment Rate Relationship
 
     Based on the data, there appears to be a slight negative relationship between education level and unemployment rate in the six major cities in Taiwan. In general, cities with higher percentages of individuals with college degrees or above tend to have lower unemployment rates, while cities with higher percentages of individuals with only high school or vocational school degrees tend to have higher unemployment rates.
